@@ -13,9 +13,9 @@
         <h2>Adopt a Virtual Pet</h2>
         <p>Choose your pet type:</p>
         <div class="pet-selector">
-            <button class="type-btn" onclick="selectType('🐶 Dog')">🐶 Dog</button>
-            <button class="type-btn" onclick="selectType('🐱 Cat')">🐱 Cat</button>
-            <button class="type-btn" onclick="selectType('🐹 Hamster')">🐹 Hamster</button>
+            <button class="type-btn" onclick="selectType(event, '🐶 Dog')">🐶 Dog</button>
+            <button class="type-btn" onclick="selectType(event, '🐱 Cat')">🐱 Cat</button>
+            <button class="type-btn" onclick="selectType(event, '🐹 Hamster')">🐹 Hamster</button>
         </div>
         
         <p id="chosen-type-text">Selected: None</p>
@@ -35,7 +35,7 @@
             <div class="coin-display">🪙 Coins: <span id="coin-count">0</span></div>
         </div>
 
-        <!-- The Pet Environment Area (Changes background/ground) -->
+        <!-- The Pet Environment Area -->
         <div id="environment-area" class="env-cage">
             <div id="pet-avatar">🐶</div>
             <div id="clothing-avatar" class="hidden">❌</div>
@@ -57,14 +57,14 @@
             
             <div class="shop-category">
                 <h4>Clothes</h4>
-                <button class="shop-btn" id="item-hat" onclick="buyItem('hat', 20)">🎩 Fancy Hat (20 🪙)</button>
-                <button class="shop-btn" id="item-glasses" onclick="buyItem('glasses', 30)">🕶️ Cool Glasses (30 🪙)</button>
+                <button class="shop-btn" id="item-hat" onclick="buyItem('hat', 'item', 20)">🎩 Fancy Hat (20 🪙)</button>
+                <button class="shop-btn" id="item-glasses" onclick="buyItem('glasses', 'item', 30)">🕶️ Cool Glasses (30 🪙)</button>
             </div>
 
             <div class="shop-category">
                 <h4>Environments</h4>
-                <button class="shop-btn" id="env-grass" onclick="buyItem('grass', 40)">🏡 Green Grass (40 🪙)</button>
-                <button class="shop-btn" id="env-house" onclick="buyItem('house', 60)">🏰 Luxury House (60 🪙)</button>
+                <button class="shop-btn" id="env-grass" onclick="buyItem('grass', 'env', 40)">🏡 Green Grass (40 🪙)</button>
+                <button class="shop-btn" id="env-house" onclick="buyItem('house', 'env', 60)">🏰 Luxury House (60 🪙)</button>
             </div>
         </div>
     </div>
