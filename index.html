@@ -3,25 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mega Clicker Game</title>
+    <title>My Virtual Pet</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="game-container">
-        <h1>Mega Clicker</h1>
+    <!-- SCREEN 1: ADOPTION & NAMING -->
+    <div id="setup-screen" class="game-card">
+        <h2>Adopt a Virtual Pet</h2>
+        <p>Choose your pet type:</p>
+        <div class="pet-selector">
+            <button class="type-btn" onclick="selectType('🐶 Dog')">🐶 Dog</button>
+            <button class="type-btn" onclick="selectType('🐱 Cat')">🐱 Cat</button>
+            <button class="type-btn" onclick="selectType('🐹 Hamster')">🐹 Hamster</button>
+        </div>
         
-        <div class="score-board">
-            <p>Score: <span id="score">0</span></p>
+        <p id="chosen-type-text">Selected: None</p>
+
+        <div class="naming-section">
+            <label for="pet-name-input">Give your pet a permanent name:</label>
+            <input type="text" id="pet-name-input" placeholder="Enter name..." maxlength="15">
         </div>
 
-        <!-- The main button to click -->
-        <button id="click-btn">🔴 CLICK ME!</button>
+        <button id="start-btn" onclick="startGame()">Bring Pet Home! ❤️</button>
+    </div>
 
-        <div class="upgrades">
-            <h3>Upgrades</h3>
-            <button id="upgrade-btn" disabled>Buy Auto-Clicker (Cost: 10)</button>
-            <p>Auto-Clickers: <span id="auto-count">0</span></p>
+    <!-- SCREEN 2: MAIN GAMEPLAY -->
+    <div id="game-screen" class="game-card hidden">
+        <div class="top-bar">
+            <h2 id="pet-display-name">Pet Name</h2>
+            <div class="coin-display">🪙 Coins: <span id="coin-count">0</span></div>
+        </div>
+
+        <!-- The Pet Environment Area (Changes background/ground) -->
+        <div id="environment-area" class="env-cage">
+            <div id="pet-avatar">🐶</div>
+            <div id="clothing-avatar" class="hidden">❌</div>
+            <div class="ground-tiles"></div>
+        </div>
+
+        <!-- Feeding Section -->
+        <div class="action-section">
+            <h3>Feeding Time</h3>
+            <p>Feeds remaining today: <span id="feed-count">4</span>/4</p>
+            <button id="feed-btn" onclick="feedPet()">🍖 Feed Pet (+10 Coins)</button>
+        </div>
+
+        <hr>
+
+        <!-- The Shop Area -->
+        <div class="shop-section">
+            <h3>🛒 The Pet Shop</h3>
+            
+            <div class="shop-category">
+                <h4>Clothes</h4>
+                <button class="shop-btn" id="item-hat" onclick="buyItem('hat', 20)">🎩 Fancy Hat (20 🪙)</button>
+                <button class="shop-btn" id="item-glasses" onclick="buyItem('glasses', 30)">🕶️ Cool Glasses (30 🪙)</button>
+            </div>
+
+            <div class="shop-category">
+                <h4>Environments</h4>
+                <button class="shop-btn" id="env-grass" onclick="buyItem('grass', 40)">🏡 Green Grass (40 🪙)</button>
+                <button class="shop-btn" id="env-house" onclick="buyItem('house', 60)">🏰 Luxury House (60 🪙)</button>
+            </div>
         </div>
     </div>
 
